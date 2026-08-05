@@ -18,25 +18,20 @@ html{
 
 
 body{
-
     font-family:'Poppins', sans-serif;
-
     color:#4B362B;
 
     background:
     linear-gradient(
-        rgba(248,244,238,.88),
-        rgba(248,244,238,.88)
+        rgba(255,255,255,.65),
+        rgba(255,255,255,.65)
     ),
     url("../images/background-songke.png");
 
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    background-color:#F8F4EE;
-
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -1635,4 +1630,136 @@ section{
     }
 
 }
+ /* =====================================
+   HERO CARD
+===================================== */
 
+.hero-kiri{
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border:1px solid rgba(139,94,60,.15);
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+
+.hero-kiri:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 22px 45px rgba(0,0,0,.12);
+
+}
+
+
+.hero h1{
+
+    margin-bottom:10px;
+
+}
+
+
+.hero h3{
+
+    margin-bottom:18px;
+
+}
+
+
+.deskripsi{
+
+    margin-top:18px;
+
+    line-height:1.9;
+
+    color:#555;
+
+}
+
+
+/* Tombol Hero */
+
+.hero .btn{
+
+    margin-top:30px;
+
+}
+
+
+/* =====================================
+   RESPONSIVE HERO CARD
+===================================== */
+
+@media screen and (max-width:768px){
+
+    .hero{
+
+        gap:35px;
+
+    }
+
+    .hero-kiri{
+
+        width:100%;
+
+        padding:28px;
+
+        border-radius:22px;
+
+        text-align:center;
+
+    }
+
+    .hero h1{
+
+        font-size:30px;
+
+    }
+
+    .hero h3{
+
+        font-size:18px;
+
+    }
+
+    .deskripsi{
+
+        font-size:15px;
+
+        line-height:1.8;
+
+    }
+
+}
+
+
+@media screen and (max-width:480px){
+
+    .hero-kiri{
+
+        padding:22px;
+
+        border-radius:18px;
+
+    }
+
+    .hero h1{
+
+        font-size:27px;
+
+    }
+
+}
