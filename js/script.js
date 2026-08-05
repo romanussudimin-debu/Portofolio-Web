@@ -37,38 +37,37 @@ sections.forEach(section => {
 
 
 
-const gallery = document.querySelectorAll(".gallery img");
+/* ============================
+   HAMBURGER MENU
+============================ */
 
-const popup = document.getElementById("popup");
 
-const popupImg = document.getElementById("popup-img");
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
 
-const close = document.getElementById("close");
 
-gallery.forEach(img => {
+if(menuToggle && navMenu){
 
-    img.addEventListener("click", () => {
+    menuToggle.addEventListener("click", ()=>{
 
-        popup.style.display = "flex";
-
-        popupImg.src = img.src;
+        navMenu.classList.toggle("active");
 
     });
 
-});
 
-close.addEventListener("click", () => {
+    // Tutup menu setelah klik link
 
-    popup.style.display = "none";
+    const navLinks = document.querySelectorAll("#nav-menu a");
 
-});
 
-popup.addEventListener("click", (e) => {
+    navLinks.forEach(link=>{
 
-    if(e.target === popup){
+        link.addEventListener("click", ()=>{
 
-        popup.style.display = "none";
+            navMenu.classList.remove("active");
 
-    }
+        });
 
-});
+    });
+
+}
