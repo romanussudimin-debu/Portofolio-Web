@@ -149,7 +149,6 @@ section{
     display: flex;
     justify-content: center;
     position: relative;
-    padding-right: ;
 }
 .hero-kanan::after{
 
@@ -1329,6 +1328,137 @@ footer{
     p {
         max-width: 100%;
         word-wrap: break-word;
+    }
+
+
+}
+/* =====================================
+   FINAL MOBILE FIX
+===================================== */
+
+@media screen and (max-width:768px){
+
+
+    /* HEADER MOBILE */
+    header{
+
+        position:fixed;
+        padding:15px 20px;
+        flex-direction:column;
+        gap:15px;
+        width:100%;
+    }
+
+
+    .logo{
+
+        font-size:24px;
+
+    }
+
+
+    nav{
+
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+        gap:12px;
+
+    }
+
+
+    nav a{
+
+        font-size:14px;
+
+    }
+
+
+
+    /* HERO MOBILE */
+
+    .hero{
+
+        width:100%;
+        min-height:auto;
+        padding-top:160px;
+        gap:40px;
+
+    }
+
+
+    .hero-kiri,
+    .hero-kanan{
+
+        width:100%;
+        max-width:100%;
+        text-align:center;
+
+    }
+
+
+    .hero h1{
+
+        font-size:32px;
+
+    }
+
+
+    .hero-kanan{
+
+        padding-right:0;
+    }
+
+
+    .hero-kanan::after{
+
+        display:none;
+
+    }
+
+
+    .hero-kanan img{
+
+        width:250px;
+        height:250px;
+
+    }
+
+
+
+    /* SEMUA SECTION */
+
+    section{
+
+        padding-left:20px;
+        padding-right:20px;
+
+    }
+
+
+
+    /* CARD */
+
+    .pengalaman-container,
+    .kontak-container,
+    .gallery,
+    .tab-content.active{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    /* BUTTON */
+
+    .btn,
+    .btn-project,
+    .project-card a{
+
+        width:auto;
+        display:inline-block;
+
     }
 
 
