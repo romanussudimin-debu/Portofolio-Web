@@ -810,3 +810,248 @@ footer{
     transform:translateY(-3px);
 
 }
+
+/* =====================================
+   RESPONSIVE DESIGN
+   HP - TABLET - LAPTOP
+===================================== */
+
+
+/* ===============================
+   LAPTOP / DESKTOP
+   Ukuran di atas 1200px
+   Tampilan utama tetap seperti desain awal
+================================ */
+@media screen and (min-width: 1200px) {
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+}
+
+
+/* ===============================
+   TABLET
+   Ukuran 769px - 1199px
+================================ */
+@media screen and (max-width: 1199px) {
+
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+
+
+    /* Navbar */
+    .navbar {
+        padding: 20px;
+    }
+
+
+    .nav-menu {
+        gap: 20px;
+    }
+
+
+    /* Hero Section */
+    .hero {
+        gap: 30px;
+    }
+
+
+    .hero img {
+        max-width: 350px;
+        height: auto;
+    }
+
+
+    /* Card Project */
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}
+
+
+/* ===============================
+   HP
+   Ukuran maksimal 768px
+================================ */
+@media screen and (max-width: 768px) {
+
+
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* Semua section */
+    section {
+        padding: 40px 20px;
+    }
+
+
+    .container {
+        width: 100%;
+    }
+
+
+
+    /* ===================
+       NAVBAR MOBILE
+    =================== */
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 15px;
+    }
+
+
+
+    /* ===================
+       HERO / PROFIL
+    =================== */
+
+    .hero,
+    .profile,
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    .hero img,
+    .profile img {
+        width: 80%;
+        max-width: 280px;
+    }
+
+
+
+    /* ===================
+       BUTTON
+    =================== */
+
+    .button-group,
+    .hero-buttons {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+    }
+
+
+    button,
+    .btn {
+
+        width: 90%;
+        max-width: 300px;
+
+    }
+
+
+
+    /* ===================
+       CARD
+    =================== */
+
+    .card-container,
+    .project-container,
+    .certificate-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    /* ===================
+       FONT
+    =================== */
+
+    h1 {
+        font-size: 32px;
+    }
+
+
+    h2 {
+        font-size: 25px;
+    }
+
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+
+
+    /* ===================
+       IMAGE
+    =================== */
+
+    img {
+
+        max-width: 100%;
+        height: auto;
+
+    }
+
+
+}
+
+
+
+/* ===============================
+   HP KECIL
+   Ukuran maksimal 480px
+================================ */
+@media screen and (max-width:480px) {
+
+
+    h1 {
+        font-size: 28px;
+    }
+
+
+    h2 {
+        font-size: 22px;
+    }
+
+
+    .btn,
+    button {
+
+        width: 100%;
+
+    }
+
+
+    .card {
+
+        padding: 15px;
+
+    }
+
+
+}
