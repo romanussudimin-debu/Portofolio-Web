@@ -1055,3 +1055,161 @@ footer{
 
 
 }
+/* =====================================
+   EXTRA MOBILE RESPONSIVE FIX
+   Perbaikan tampilan HP
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+
+    /* Mencegah elemen keluar layar */
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* Container utama */
+    .container {
+        width: 100%;
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+
+
+    /* Semua section */
+    section {
+        width: 100%;
+        min-height: auto;
+        padding: 50px 20px;
+    }
+
+
+
+    /* ===== HERO ===== */
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+
+    .hero h1 {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+
+    .hero p {
+        font-size: 15px;
+    }
+
+
+    .hero img {
+        width: 75%;
+        max-width: 260px;
+        height: auto;
+    }
+
+
+
+    /* ===== NAVBAR ===== */
+
+    nav {
+        width: 100%;
+    }
+
+
+    .navbar {
+        width: 100%;
+        flex-direction: column;
+    }
+
+
+    .nav-menu,
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .nav-menu a,
+    .nav-links a {
+        font-size: 15px;
+    }
+
+
+
+    /* ===== BUTTON ===== */
+
+    .btn,
+    button {
+        font-size: 14px;
+        padding: 12px 20px;
+        width: auto;
+        min-width: 180px;
+    }
+
+
+
+    /* ===== CARD PROJECT ===== */
+
+    .card-container,
+    .project-container,
+    .certificate-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+
+    .card {
+        width: 100%;
+    }
+
+
+
+    /* ===== TEXT ===== */
+
+    h1 {
+        font-size: 32px !important;
+    }
+
+
+    h2 {
+        font-size: 24px !important;
+    }
+
+
+    h3 {
+        font-size: 20px;
+    }
+
+
+    p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+
+    /* ===== IMAGE ===== */
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+}
