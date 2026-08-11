@@ -209,152 +209,187 @@ section{
    HERO SECTION
 ===================================== */
 
-
 .hero{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     gap:70px;
 
-    min-height:100vh;
+    min-height:calc(100vh - 88px);
 
+    padding:70px 8%;
+
+    position:relative;
+    overflow:hidden;
 }
 
 
+/* =====================================
+   HERO LEFT
+===================================== */
 
 .hero-kiri{
-
     flex:1;
 
+    position:relative;
+    z-index:2;
+
+    animation:heroText .8s ease both;
 }
 
 
+/* =====================================
+   HERO RIGHT
+===================================== */
 
 .hero-kanan{
-
     flex:1;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     position:relative;
 
+    min-height:500px;
+
+    animation:heroImage 1s ease both;
 }
 
 
+/* =====================================
+   DECORATIVE GOLD LINE
+===================================== */
 
 .hero-kanan::after{
-
     content:"";
 
     position:absolute;
 
     top:50%;
-
-    right:0;
+    right:2%;
 
     transform:translateY(-50%);
 
-    width:6px;
-
-    height:320px;
+    width:5px;
+    height:300px;
 
     border-radius:20px;
 
-
     background:linear-gradient(
-
         to bottom,
-
+        transparent,
         #D8B07A,
-
         #9B6A45,
-
-        #D8B07A
-
+        #D8B07A,
+        transparent
     );
 
+    opacity:.9;
 }
 
 
+/* =====================================
+   PROFILE IMAGE
+===================================== */
 
 .hero-kanan img{
-
     width:360px;
-
     height:360px;
 
     object-fit:cover;
 
     border-radius:50%;
 
-    border:8px solid white;
+    border:8px solid rgba(255,255,255,.95);
 
     box-shadow:
+        0 25px 55px rgba(75,54,43,.20),
+        0 0 0 14px rgba(255,255,255,.18);
 
-    0 20px 40px rgba(0,0,0,.12);
+    position:relative;
+    z-index:2;
 
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
 }
 
 
+/* IMAGE HOVER */
+
+.hero-kanan img:hover{
+    transform:scale(1.035);
+
+    box-shadow:
+        0 30px 65px rgba(75,54,43,.25),
+        0 0 0 18px rgba(216,176,122,.15);
+}
+
+
+/* =====================================
+   HERO TITLE
+===================================== */
 
 .hero h1{
-
     font-size:54px;
+
+    line-height:1.05;
 
     color:#4B362B;
 
-    margin-bottom:10px;
+    margin-bottom:14px;
 
+    letter-spacing:-1.5px;
 }
 
 
+/* =====================================
+   HERO SUBTITLE
+===================================== */
 
 .hero h3{
-
     color:#8B5E3C;
 
-    margin-bottom:10px;
+    margin-bottom:15px;
 
-    font-weight:500;
+    font-weight:600;
 
+    line-height:1.5;
 }
 
 
+/* =====================================
+   DESCRIPTION
+===================================== */
 
 .deskripsi{
-
     margin-top:20px;
 
     color:#666;
 
     line-height:1.9;
 
-    max-width:650px;
+    max-width:620px;
 
+    font-size:15px;
 }
-
 
 
 /* =====================================
    BUTTON
 ===================================== */
 
-
 .btn{
+    display:inline-flex;
 
-    display:inline-block;
+    align-items:center;
+    justify-content:center;
 
     margin-top:35px;
 
-    padding:14px 36px;
+    padding:14px 34px;
 
     background:#8B5E3C;
 
@@ -364,17 +399,133 @@ section{
 
     border-radius:40px;
 
-    transition:.3s;
+    font-weight:600;
+
+    box-shadow:
+        0 8px 20px rgba(139,94,60,.18);
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.btn:hover{
+    background:#6E442A;
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 14px 25px rgba(139,94,60,.25);
+}
+
+
+/* =====================================
+   HERO ANIMATION
+===================================== */
+
+@keyframes heroText{
+
+    from{
+        opacity:0;
+        transform:translateX(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
 
 }
 
 
+@keyframes heroImage{
 
-.btn:hover{
+    from{
+        opacity:0;
+        transform:translateX(30px);
+    }
 
-    background:#6E442A;
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
 
-    transform:translateY(-3px);
+}
+
+
+/* =====================================
+   MOBILE HERO
+===================================== */
+
+@media screen and (max-width:900px){
+
+    .hero{
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:40px;
+
+        padding:70px 25px;
+    }
+
+
+    .hero-kiri{
+        width:100%;
+    }
+
+
+    .hero-kanan{
+        width:100%;
+
+        min-height:auto;
+    }
+
+
+    .hero-kanan::after{
+        display:none;
+    }
+
+
+    .hero-kanan img{
+        width:290px;
+        height:290px;
+    }
+
+
+    .deskripsi{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+}
+
+
+@media screen and (max-width:500px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+
+    .hero h1{
+        font-size:42px;
+    }
+
+
+    .hero-kanan img{
+        width:240px;
+        height:240px;
+    }
+
+
+    .btn{
+        padding:13px 28px;
+    }
 
 }
  
@@ -1762,4 +1913,1576 @@ section{
 
     }
 
+}
+
+
+/* =====================================
+   ABOUT SECTION
+===================================== */
+
+.about{
+    position:relative;
+
+    padding:110px 8% 120px;
+
+    overflow:hidden;
+}
+
+
+/* =====================================
+   SECTION TITLE
+===================================== */
+
+.about .judul-section{
+    text-align:center;
+
+    max-width:750px;
+
+    margin:0 auto 65px;
+}
+
+
+.about .section-label{
+    display:inline-block;
+
+    color:#9B6A45;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    margin-bottom:12px;
+}
+
+
+.about .judul-section h2{
+    color:#4B362B;
+
+    font-size:38px;
+
+    line-height:1.2;
+
+    margin-bottom:18px;
+}
+
+
+.about .judul-section p{
+    color:#777;
+
+    line-height:1.8;
+
+    font-size:15px;
+}
+
+
+/* =====================================
+   DIVIDER
+===================================== */
+
+.about .divider{
+    width:70px;
+
+    height:3px;
+
+    margin:18px auto;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        to right,
+        #D8B07A,
+        #8B5E3C,
+        #D8B07A
+    );
+}
+
+
+/* =====================================
+   ABOUT CONTAINER
+===================================== */
+
+.about-container{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr
+        .85fr;
+
+    gap:70px;
+
+    align-items:start;
+}
+
+
+/* =====================================
+   ABOUT TEXT
+===================================== */
+
+.about-text{
+
+    padding:35px 0;
+}
+
+
+.about-small-title{
+
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    color:#9B6A45;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+}
+
+
+.about-text h3{
+
+    color:#4B362B;
+
+    font-size:30px;
+
+    line-height:1.35;
+
+    margin-bottom:25px;
+
+    max-width:600px;
+}
+
+
+.about-text p{
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    margin-bottom:20px;
+
+    max-width:650px;
+}
+
+
+/* =====================================
+   ABOUT HIGHLIGHT CARD
+===================================== */
+
+.about-highlight{
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(139,94,60,.12);
+
+    border-radius:24px;
+
+    padding:10px 30px;
+
+    box-shadow:
+        0 15px 40px rgba(75,54,43,.08);
+}
+
+
+/* =====================================
+   ABOUT ITEM
+===================================== */
+
+.about-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:22px;
+
+    padding:28px 0;
+
+    border-bottom:1px solid rgba(139,94,60,.12);
+
+    transition:.3s ease;
+}
+
+
+.about-item:last-child{
+
+    border-bottom:none;
+}
+
+
+/* =====================================
+   NUMBER
+===================================== */
+
+.about-number{
+
+    flex-shrink:0;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#8B5E3C;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.3s ease;
+}
+
+
+/* =====================================
+   ITEM TEXT
+===================================== */
+
+.about-item h4{
+
+    color:#4B362B;
+
+    font-size:18px;
+
+    margin-bottom:6px;
+}
+
+
+.about-item p{
+
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    margin:0;
+}
+
+
+/* =====================================
+   ITEM HOVER
+===================================== */
+
+.about-item:hover{
+
+    transform:translateX(6px);
+}
+
+
+.about-item:hover .about-number{
+
+    background:#D8B07A;
+
+    color:#4B362B;
+
+    transform:rotate(8deg);
+}
+
+
+/* =====================================
+   ABOUT DECORATION
+===================================== */
+
+.about::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    left:-180px;
+    top:180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216,176,122,.16),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media screen and (max-width:900px){
+
+    .about{
+
+        padding:90px 25px;
+    }
+
+
+    .about .judul-section h2{
+
+        font-size:32px;
+    }
+
+
+    .about-container{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+
+    .about-text{
+
+        padding:10px 0;
+    }
+
+}
+
+
+@media screen and (max-width:500px){
+
+    .about{
+
+        padding:75px 20px;
+    }
+
+
+    .about .judul-section h2{
+
+        font-size:28px;
+    }
+
+
+    .about-text h3{
+
+        font-size:25px;
+    }
+
+
+    .about-highlight{
+
+        padding:5px 20px;
+    }
+
+
+    .about-item{
+
+        gap:15px;
+    }
+
+}
+/* =====================================
+   CULTURAL CONTEXT
+===================================== */
+
+.cultural-context{
+    position:relative;
+    padding:100px 8% 110px;
+    overflow:hidden;
+}
+
+
+/* PERBAIKAN JUDUL CULTURAL CONTEXT */
+
+.cultural-context .judul-section{
+    margin-top:0;
+    margin-bottom:45px;
+}
+
+
+/* INTRO */
+
+.culture-intro{
+    max-width:900px;
+    margin:0 auto 50px;
+    text-align:center;
+}
+
+.culture-intro p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:12px;
+}
+
+
+/* CULTURE CARDS */
+
+.culture-container{
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.culture-card{
+    background:rgba(255,255,255,.90);
+    border:1px solid rgba(139,94,60,.15);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.07);
+    transition:.3s ease;
+}
+
+.culture-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+
+/* CULTURE IMAGE */
+
+.culture-image{
+    width:100%;
+    height:260px;
+    overflow:hidden;
+}
+
+.culture-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.4s ease;
+}
+
+.culture-card:hover .culture-image img{
+    transform:scale(1.04);
+}
+
+
+/* CULTURE CONTENT */
+
+.culture-content{
+    padding:30px;
+}
+
+.culture-category{
+    display:inline-block;
+    margin-bottom:10px;
+    color:#C49A3A;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.culture-content h3{
+    color:#8B5E3C;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.culture-content p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+
+/* =====================================
+   MY APPROACH
+===================================== */
+
+.cultural-approach{
+    max-width:1100px;
+    margin:100px auto 0;
+}
+
+.cultural-approach .judul-section{
+    margin-top:0;
+    margin-bottom:45px;
+}
+
+.approach-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.approach-item{
+    padding:28px 22px;
+    background:rgba(255,255,255,.88);
+    border-radius:18px;
+    border-top:4px solid #C49A3A;
+    box-shadow:0 8px 22px rgba(0,0,0,.06);
+}
+
+.approach-item > span{
+    display:block;
+    margin-bottom:15px;
+    color:#C49A3A;
+    font-size:14px;
+    font-weight:700;
+}
+
+.approach-item h3{
+    color:#8B5E3C;
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+.approach-item p{
+    color:#666;
+    font-size:14px;
+    line-height:1.7;
+}
+
+
+/* =====================================
+   SOURCES & ETHICS
+===================================== */
+
+.culture-ethics{
+    max-width:900px;
+    margin:80px auto 0;
+}
+
+.ethics-content{
+    padding:40px;
+    background:rgba(255,255,255,.88);
+    border-left:5px solid #C49A3A;
+    border-radius:18px;
+    box-shadow:0 8px 22px rgba(0,0,0,.06);
+}
+
+.ethics-content h3{
+    color:#8B5E3C;
+    font-size:24px;
+    margin:10px 0 18px;
+}
+
+.ethics-content p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+
+/* =====================================
+   CULTURAL CONTEXT MOBILE
+===================================== */
+
+@media screen and (max-width:768px){
+
+    .cultural-context{
+        padding:80px 20px 90px;
+    }
+
+    .cultural-context .judul-section{
+        margin-top:0;
+        margin-bottom:35px;
+    }
+
+    .culture-container{
+        grid-template-columns:1fr;
+    }
+
+    .culture-image{
+        height:220px;
+    }
+
+    .culture-content{
+        padding:25px;
+    }
+
+    .cultural-approach{
+        margin-top:70px;
+    }
+
+    .cultural-approach .judul-section{
+        margin-top:0;
+    }
+
+    .approach-container{
+        grid-template-columns:1fr;
+    }
+
+    .culture-ethics{
+        margin-top:60px;
+    }
+
+    .ethics-content{
+        padding:28px;
+    }
+
+}
+
+/* =====================================
+   CBL & PBL LEARNING
+===================================== */
+
+.pembelajaran-menu{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:35px auto 45px;
+    flex-wrap:wrap;
+}
+
+.pembelajaran-menu .tab-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 24px;
+    border:1px solid rgba(139,94,60,.25);
+    border-radius:30px;
+    background:rgba(255,255,255,.85);
+    color:#8B5E3C;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.pembelajaran-menu .tab-btn:hover{
+    transform:translateY(-2px);
+    border-color:#C49A3A;
+}
+
+.pembelajaran-menu .tab-btn.active{
+    background:#8B5E3C;
+    color:white;
+    border-color:#8B5E3C;
+}
+
+
+/* CBL / PBL CODE */
+
+.learning-code{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:38px;
+    height:28px;
+    border-radius:8px;
+    background:#F4E7D3;
+    color:#8B5E3C;
+    font-size:11px;
+    font-weight:700;
+}
+
+.tab-btn.active .learning-code{
+    background:#C49A3A;
+    color:white;
+}
+
+
+/* PROJECT TOP */
+
+.project-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.project-number{
+    color:#C49A3A;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.project-category{
+    color:#8B5E3C;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.5px;
+}
+
+
+/* LEARNING STATEMENT */
+
+.learning-statement{
+    max-width:850px;
+    margin:65px auto 0;
+    padding:35px;
+    text-align:center;
+    background:rgba(255,255,255,.78);
+    border-top:1px solid rgba(196,154,58,.4);
+    border-bottom:1px solid rgba(196,154,58,.4);
+}
+
+.learning-statement h3{
+    margin:10px 0 15px;
+    color:#8B5E3C;
+    font-size:24px;
+}
+
+.learning-statement p{
+    color:#555;
+    line-height:1.8;
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width:768px){
+
+    .pembelajaran-menu{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .pembelajaran-menu .tab-btn{
+        justify-content:center;
+        width:100%;
+    }
+
+    .project-top{
+        align-items:flex-start;
+        gap:10px;
+        flex-direction:column;
+    }
+
+    .learning-statement{
+        padding:28px 20px;
+    }
+
+}
+/* =====================================
+   SKILLS
+===================================== */
+
+.skill-menu{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin:35px auto 45px;
+    flex-wrap:wrap;
+}
+
+.skill-menu .tab-btn{
+    padding:13px 22px;
+    border:1px solid rgba(139,94,60,.25);
+    border-radius:30px;
+    background:rgba(255,255,255,.85);
+    color:#8B5E3C;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.skill-menu .tab-btn:hover{
+    transform:translateY(-2px);
+    border-color:#C49A3A;
+}
+
+.skill-menu .tab-btn.active{
+    background:#8B5E3C;
+    color:white;
+    border-color:#8B5E3C;
+}
+
+
+/* SKILL CONTENT */
+
+.skill-content{
+    max-width:1100px;
+    margin:0 auto;
+    display:none;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.skill-content.active{
+    display:grid;
+}
+
+
+/* SKILL CARD */
+
+.skill-content .skill-card{
+    position:relative;
+    padding:28px;
+    background:rgba(255,255,255,.90);
+    border:1px solid rgba(139,94,60,.12);
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    transition:.3s ease;
+}
+
+.skill-content .skill-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background:#C49A3A;
+    border-radius:20px 20px 0 0;
+}
+
+.skill-content .skill-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(0,0,0,.10);
+}
+
+
+/* ICON */
+
+.skill-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:52px;
+    height:52px;
+    margin-bottom:18px;
+    background:#F4E7D3;
+    border-radius:15px;
+    color:#8B5E3C;
+    font-size:14px;
+    font-weight:700;
+}
+
+
+/* TITLE */
+
+.skill-content .skill-card h3{
+    color:#8B5E3C;
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+
+/* DESCRIPTION */
+
+.skill-content .skill-card p{
+    color:#666;
+    font-size:14px;
+    line-height:1.7;
+}
+
+
+/* LANGUAGE */
+
+.language-card{
+    text-align:left;
+}
+
+
+/* CONTINUOUS LEARNING */
+
+.skills-statement{
+    max-width:850px;
+    margin:65px auto 0;
+    padding:35px;
+    text-align:center;
+    background:rgba(255,255,255,.78);
+    border-top:1px solid rgba(196,154,58,.4);
+    border-bottom:1px solid rgba(196,154,58,.4);
+}
+
+.skills-statement h3{
+    color:#8B5E3C;
+    font-size:24px;
+    margin:10px 0 15px;
+}
+
+.skills-statement p{
+    color:#555;
+    line-height:1.8;
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width:768px){
+
+    .skill-menu{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .skill-menu .tab-btn{
+        width:100%;
+    }
+
+    .skill-content.active{
+        grid-template-columns:1fr;
+    }
+
+    .skill-content .skill-card{
+        padding:25px;
+    }
+
+    .skills-statement{
+        padding:28px 20px;
+    }
+
+}
+
+/* =====================================
+   HERO FINAL POLISH
+===================================== */
+
+.hero-kanan img{
+    width:330px;
+    height:330px;
+}
+
+
+/* membuat background budaya sedikit lebih terlihat */
+
+.hero{
+    isolation:isolate;
+}
+
+
+/* batas visual Hero */
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    left:8%;
+    right:8%;
+    bottom:0;
+
+    height:1px;
+
+    background:rgba(139,94,60,.12);
+}
+
+
+/* jarak section berikutnya */
+
+#about{
+    position:relative;
+    z-index:2;
+}
+
+/* =====================================
+   SELECTED LEARNING & PROJECTS
+===================================== */
+
+.pembelajaran{
+    padding:110px 8% 120px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* =====================================
+   SECTION HEADER
+===================================== */
+
+.pembelajaran .judul-section{
+    max-width:800px;
+
+    margin:0 auto 50px;
+
+    text-align:center;
+}
+
+
+.pembelajaran .section-label{
+    display:inline-block;
+
+    color:#9B6A45;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    margin-bottom:12px;
+}
+
+
+.pembelajaran .judul-section h2{
+    color:#4B362B;
+
+    font-size:38px;
+
+    line-height:1.25;
+
+    margin-bottom:18px;
+}
+
+
+.pembelajaran .judul-section p{
+    color:#777;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+
+.pembelajaran .divider{
+    width:70px;
+
+    height:3px;
+
+    margin:18px auto;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        to right,
+        #D8B07A,
+        #8B5E3C,
+        #D8B07A
+    );
+}
+
+
+/* =====================================
+   CBL & PBL MENU
+===================================== */
+
+.pembelajaran-menu{
+
+    max-width:620px;
+
+    margin:0 auto 45px;
+
+    padding:7px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:7px;
+
+    background:rgba(139,94,60,.08);
+
+    border:1px solid rgba(139,94,60,.12);
+
+    border-radius:18px;
+}
+
+
+/* TAB BUTTON */
+
+.tab-btn{
+
+    border:none;
+
+    background:transparent;
+
+    color:#6E5546;
+
+    padding:16px 20px;
+
+    border-radius:13px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s ease;
+}
+
+
+.tab-btn:hover{
+
+    background:rgba(255,255,255,.7);
+
+    transform:translateY(-1px);
+}
+
+
+/* ACTIVE TAB */
+
+.tab-btn.active{
+
+    background:#8B5E3C;
+
+    color:white;
+
+    box-shadow:
+        0 8px 20px rgba(139,94,60,.20);
+}
+
+
+/* CBL / PBL CODE */
+
+.learning-code{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:42px;
+
+    height:28px;
+
+    padding:0 8px;
+
+    border-radius:8px;
+
+    background:rgba(255,255,255,.2);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+
+.tab-btn:not(.active) .learning-code{
+
+    background:#8B5E3C;
+
+    color:white;
+}
+
+
+/* =====================================
+   TAB CONTENT
+===================================== */
+
+.tab-content{
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+    display:none;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+    animation:tabFade .4s ease;
+}
+
+
+.tab-content.active{
+
+    display:grid;
+}
+
+
+/* =====================================
+   PROJECT CARD
+===================================== */
+
+.project-card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(139,94,60,.12);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    box-shadow:
+        0 12px 35px rgba(75,54,43,.07);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+    overflow:hidden;
+}
+
+
+/* TOP DECORATION */
+
+.project-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:linear-gradient(
+        to right,
+        #8B5E3C,
+        #D8B07A,
+        #8B5E3C
+    );
+}
+
+
+/* HOVER */
+
+.project-card:hover{
+
+    transform:translateY(-7px);
+
+    border-color:rgba(139,94,60,.25);
+
+    box-shadow:
+        0 20px 45px rgba(75,54,43,.13);
+}
+
+
+/* =====================================
+   PROJECT TOP
+===================================== */
+
+.project-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+
+.project-number{
+
+    color:#8B5E3C;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+
+.project-category{
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    background:#F2E8DA;
+
+    color:#8B5E3C;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    text-align:right;
+}
+
+
+/* =====================================
+   PROJECT TITLE
+===================================== */
+
+.project-card h3{
+
+    color:#4B362B;
+
+    font-size:23px;
+
+    line-height:1.35;
+
+    margin-bottom:15px;
+}
+
+
+/* =====================================
+   PROJECT DESCRIPTION
+===================================== */
+
+.project-card > p{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    margin-bottom:22px;
+}
+
+
+/* =====================================
+   PROJECT TECHNOLOGY
+===================================== */
+
+.project-tech{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:25px;
+}
+
+
+.project-tech span{
+
+    padding:7px 11px;
+
+    border-radius:20px;
+
+    background:#F8F2EA;
+
+    color:#76533C;
+
+    border:1px solid rgba(139,94,60,.10);
+
+    font-size:11px;
+
+    font-weight:600;
+}
+
+
+/* =====================================
+   PROJECT LINK
+===================================== */
+
+.project-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#8B5E3C;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.3s ease;
+}
+
+
+.project-link i{
+
+    transition:.3s ease;
+}
+
+
+.project-link:hover{
+
+    color:#6E442A;
+}
+
+
+.project-link:hover i{
+
+    transform:translateX(5px);
+}
+
+
+/* =====================================
+   LEARNING STATEMENT
+===================================== */
+
+.learning-statement{
+
+    max-width:850px;
+
+    margin:65px auto 0;
+
+    padding:35px 40px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.65);
+
+    border:1px solid rgba(139,94,60,.12);
+
+    border-radius:22px;
+
+    box-shadow:
+        0 10px 30px rgba(75,54,43,.05);
+}
+
+
+.learning-statement .section-label{
+
+    margin-bottom:10px;
+}
+
+
+.learning-statement h3{
+
+    color:#4B362B;
+
+    font-size:25px;
+
+    margin:8px 0 15px;
+}
+
+
+.learning-statement p{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    max-width:720px;
+
+    margin:auto;
+}
+
+
+/* =====================================
+   TAB ANIMATION
+===================================== */
+
+@keyframes tabFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media screen and (max-width:800px){
+
+    .pembelajaran{
+
+        padding:90px 25px 100px;
+    }
+
+
+    .pembelajaran .judul-section h2{
+
+        font-size:32px;
+    }
+
+
+    .tab-content.active{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .project-card{
+
+        padding:25px;
+    }
+
+}
+
+
+@media screen and (max-width:500px){
+
+    .pembelajaran{
+
+        padding:75px 20px 90px;
+    }
+
+
+    .pembelajaran-menu{
+
+        grid-template-columns:1fr;
+
+        max-width:100%;
+    }
+
+
+    .tab-btn{
+
+        padding:14px;
+    }
+
+
+    .pembelajaran .judul-section h2{
+
+        font-size:28px;
+    }
+
+
+    .project-top{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+
+    .project-category{
+
+        text-align:left;
+    }
+
+
+    .learning-statement{
+
+        padding:28px 22px;
+    }
+
+}
+.hidden-section{
+    display:none;
 }
