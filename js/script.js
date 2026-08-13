@@ -71,3 +71,111 @@ if(menuToggle && navMenu){
     });
 
 }
+
+/* ============================
+   LANGUAGE SWITCHER
+============================ */
+
+const btnID = document.getElementById("btn-id");
+const btnEN = document.getElementById("btn-en");
+
+const translatableElements = document.querySelectorAll("[data-id][data-en]");
+
+function changeLanguage(language) {
+
+    translatableElements.forEach(element => {
+
+        if (language === "id") {
+            element.textContent = element.getAttribute("data-id");
+        } else {
+            element.textContent = element.getAttribute("data-en");
+        }
+
+    });
+
+    // Tombol bahasa aktif
+    if (btnID && btnEN) {
+
+        btnID.classList.remove("active");
+        btnEN.classList.remove("active");
+
+        if (language === "id") {
+            btnID.classList.add("active");
+        } else {
+            btnEN.classList.add("active");
+        }
+
+    }
+
+}
+
+
+// Tombol Indonesia
+if (btnID) {
+    btnID.addEventListener("click", () => {
+        changeLanguage("id");
+    });
+}
+
+
+// Tombol English
+if (btnEN) {
+    btnEN.addEventListener("click", () => {
+        changeLanguage("en");
+    });
+}
+
+/* ============================
+   CULTURAL CONTEXT TOGGLE
+============================ */
+
+const cultureButton = document.getElementById("cultureButton");
+const cultureDetails = document.getElementById("cultureDetails");
+const cultureButtonText = document.getElementById("cultureButtonText");
+
+if (cultureButton && cultureDetails && cultureButtonText) {
+
+    cultureButton.addEventListener("click", () => {
+
+        cultureDetails.classList.toggle("show");
+
+        const isOpen = cultureDetails.classList.contains("show");
+
+        if (isOpen) {
+
+            cultureButtonText.setAttribute(
+                "data-id",
+                "Tutup Konteks Budaya ↑"
+            );
+
+            cultureButtonText.setAttribute(
+                "data-en",
+                "Close Cultural Context ↑"
+            );
+
+        } else {
+
+            cultureButtonText.setAttribute(
+                "data-id",
+                "Jelajahi Konteks Budaya →"
+            );
+
+            cultureButtonText.setAttribute(
+                "data-en",
+                "Explore Cultural Context →"
+            );
+
+        }
+
+        // Mempertahankan bahasa yang sedang aktif
+        const currentLanguage =
+            localStorage.getItem("language") || "id";
+
+        cultureButtonText.textContent =
+            currentLanguage === "en"
+                ? cultureButtonText.getAttribute("data-en")
+                : cultureButtonText.getAttribute("data-id");
+
+    });
+
+}
