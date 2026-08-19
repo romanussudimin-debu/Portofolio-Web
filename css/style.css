@@ -3668,3 +3668,277 @@ section{
     }
 
 }
+
+/* =================================
+   CERTIFICATE GALLERY
+================================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+
+.certificate-item {
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    background: #ffffff;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.certificate-item:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.14);
+}
+
+
+.certificate-item img {
+    display: block;
+
+    width: 100%;
+    height: 260px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    transition: transform 0.4s ease;
+}
+
+
+.certificate-item:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =================================
+   CERTIFICATE POPUP
+================================= */
+
+.certificate-popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(25, 20, 18, 0.90);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 99999;
+}
+
+
+.certificate-popup.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =================================
+   POPUP IMAGE
+================================= */
+
+.certificate-popup-content {
+
+    position: relative;
+
+    max-width: 90vw;
+    max-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.certificate-popup-content img {
+
+    display: block;
+
+    max-width: 90vw;
+    max-height: 88vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.40);
+}
+
+
+/* =================================
+   CLOSE BUTTON
+================================= */
+
+.certificate-close {
+
+    position: fixed;
+
+    top: 25px;
+    right: 30px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #6d452d;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 100000;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.certificate-close:hover {
+
+    transform: rotate(90deg);
+
+    background: #f5f0eb;
+
+    color: #4f321f;
+}
+
+
+/* =================================
+   PREVENT PAGE SCROLL
+================================= */
+
+body.popup-open {
+
+    overflow: hidden;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+
+    .gallery {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .gallery {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .certificate-item img {
+
+        height: 240px;
+
+    }
+
+
+    .certificate-popup {
+
+        padding: 15px;
+
+    }
+
+
+    .certificate-popup-content img {
+
+        max-width: 95vw;
+
+        max-height: 85vh;
+
+    }
+
+
+    .certificate-close {
+
+        top: 15px;
+
+        right: 15px;
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 28px;
+
+    }
+
+}

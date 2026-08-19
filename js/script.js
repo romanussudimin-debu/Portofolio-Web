@@ -179,3 +179,96 @@ if (cultureButton && cultureDetails && cultureButtonText) {
     });
 
 }
+/* ============================
+   CERTIFICATE POPUP
+============================ */
+
+const certificateItems = document.querySelectorAll(".certificate-item");
+
+const certificatePopup =
+    document.getElementById("certificate-popup");
+
+const certificatePopupImage =
+    document.getElementById("certificate-popup-image");
+
+const certificateClose =
+    document.getElementById("certificate-close");
+
+
+/* OPEN CERTIFICATE */
+
+certificateItems.forEach(item => {
+
+    const image = item.querySelector("img");
+
+    image.addEventListener("click", () => {
+
+        certificatePopupImage.src = image.src;
+
+        certificatePopupImage.alt = image.alt;
+
+        certificatePopup.classList.add("show");
+
+        document.body.classList.add("popup-open");
+
+    });
+
+});
+
+
+/* CLOSE BUTTON */
+
+if (certificateClose) {
+
+    certificateClose.addEventListener("click", () => {
+
+        closeCertificatePopup();
+
+    });
+
+}
+
+
+/* CLICK OUTSIDE IMAGE */
+
+if (certificatePopup) {
+
+    certificatePopup.addEventListener("click", (event) => {
+
+        if (event.target === certificatePopup) {
+
+            closeCertificatePopup();
+
+        }
+
+    });
+
+}
+
+
+/* ESC KEY */
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        closeCertificatePopup();
+
+    }
+
+});
+
+
+/* CLOSE FUNCTION */
+
+function closeCertificatePopup() {
+
+    if (!certificatePopup) return;
+
+    certificatePopup.classList.remove("show");
+
+    document.body.classList.remove("popup-open");
+
+    certificatePopupImage.src = "";
+
+}
